@@ -20,3 +20,15 @@ let incomeArray = []
 let expenseArray = []
 
 // event listeners
+incomeForm.addEventListener("submit", function(event) {
+    event.preventDefault()
+
+    const amount = Number(incomeAmount.value)
+    if(amount <= 0) return
+    
+    incomeEntries.push(amount)
+    incomeAmount.value = ""
+
+    renderIncome()
+    updateSummary()
+})
