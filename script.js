@@ -83,6 +83,18 @@ function renderExpenses() {
         const li = document.createElement("li")
         li.textContent = `${item.description}: $${item.amount}`
         expenseList.appendChild(li)
+
+        const deleteButton = document.createElement("button")
+        deleteButton.textContent = "Remove"
+        deleteButton.classList.add("delete-button")
+
+        deleteButton.addEventListener("click", () => {
+            expenseArray = expenseArray.filter((_, i) => i !== index)
+            renderExpenses()
+            updateSummary()
+        })
+
+        li.appendChild(deleteButton)
     })
 }
 
