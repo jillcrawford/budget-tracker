@@ -32,3 +32,19 @@ incomeForm.addEventListener("submit", function(event) {
     renderIncome()
     updateSummary()
 })
+
+expenseForm.addEventListener("submit", function(event) {
+    event.preventDefault()
+
+    const description = expenseDescription.value.trim()
+    const amount = Number(expenseAmount)
+    if(!description || amount <= 0) return
+
+    expenseEntries.push({description, amount})
+
+    expenseDescription.value = ""
+    expenseAmount.value = ""
+
+    renderExpenses()
+    updateSummary()
+})
