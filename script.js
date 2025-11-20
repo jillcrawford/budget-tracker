@@ -71,7 +71,14 @@ function renderExpenses() {
 }
 
 function updateSummary() {
-    const totalIncome = 
-    const totalExpenses = 
-    const remainingBalance = 
+    let totalIncome = 0
+    let totalExpenses = 0
+
+    for (let amount of incomeList) {
+        totalIncome =+ amount
+    }
+
+    for (let amount of expenseList) {
+        totalExpenses += amount
+    }
 }
