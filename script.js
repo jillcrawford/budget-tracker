@@ -81,4 +81,8 @@ function updateSummary() {
     for (let amount of expenseList) {
         totalExpenses += amount
     }
+
+    document.getElementById("total-income").textContent = totalIncome
+    document.getElementById("total-expenses").textContent = totalExpenses
+    document.getElementById("remaining-balance").textContent = totalIncome - totalExpenses
 }
