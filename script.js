@@ -48,3 +48,22 @@ expenseForm.addEventListener("submit", function(event) {
     renderExpenses()
     updateSummary()
 })
+
+// functions
+function renderIncome() {
+    incomeList.innerHTML = ""
+
+    incomeEntries.forEach((amount) => {
+        const li = document.createElement("li")
+        li.textContent = `$${amount}`
+        incomeList.appendChild(li)
+    })
+}
+
+function renderExpenses() {
+    
+}
+
+function updateSummary() {
+
+}
