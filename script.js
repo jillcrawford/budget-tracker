@@ -71,5 +71,7 @@ function renderExpenses() {
 }
 
 function updateSummary() {
-
+    const totalIncome = 
+    const totalExpenses = 
+    const remainingBalance = 
 }
