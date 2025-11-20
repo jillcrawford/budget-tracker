@@ -37,7 +37,7 @@ expenseForm.addEventListener("submit", function(event) {
     event.preventDefault()
 
     const description = expenseDescription.value.trim()
-    const amount = Number(expenseAmount)
+    const amount = Number(expenseAmount.value)
     if(!description || amount <= 0) return
 
     expenseArray.push({description, amount})
@@ -75,7 +75,7 @@ function updateSummary() {
     let totalExpenses = 0
 
     for (let amount of incomeArray) {
-        totalIncome =+ amount
+        totalIncome += amount
     }
 
     for (let amount of expenseArray) {
