@@ -20,6 +20,8 @@ let incomeArray = []
 let expenseArray = []
 
 // event listeners
+
+// income
 incomeForm.addEventListener("submit", function(event) {
     event.preventDefault()
 
@@ -33,6 +35,7 @@ incomeForm.addEventListener("submit", function(event) {
     updateSummary()
 })
 
+// expenses
 expenseForm.addEventListener("submit", function(event) {
     event.preventDefault()
 
@@ -53,9 +56,22 @@ expenseForm.addEventListener("submit", function(event) {
 function renderIncome() {
     incomeList.innerHTML = ""
 
-    incomeArray.forEach((amount) => {
+    incomeArray.forEach((amount, index) => {
         const li = document.createElement("li")
         li.textContent = `$${amount}`
+        incomeList.appendChild(li)
+
+        const deleteButton = document.createElement("button")
+        deleteButton.textContent = "Remove"
+        deleteButton.classList.add("delete-button")
+
+        deleteButton.addEventListener("click", () => {
+            incomeArray = incomeArray.filter((_, i) => i !== index)
+            renderIncome()
+            updateSummary()
+        })
+
+        li.appendChild(deleteButton)
         incomeList.appendChild(li)
     })
 }
@@ -78,8 +94,8 @@ function updateSummary() {
         totalIncome += amount
     }
 
-    for (let amount of expenseArray) {
-        totalExpenses += amount
+    for (let item of expenseArray) {
+        totalExpenses += item.amount
     }
 
     document.getElementById("total-income").textContent = totalIncome
