@@ -26,7 +26,7 @@ incomeForm.addEventListener("submit", function(event) {
     const amount = Number(incomeAmount.value)
     if(amount <= 0) return
     
-    incomeEntries.push(amount)
+    incomeArray.push(amount)
     incomeAmount.value = ""
 
     renderIncome()
@@ -40,7 +40,7 @@ expenseForm.addEventListener("submit", function(event) {
     const amount = Number(expenseAmount)
     if(!description || amount <= 0) return
 
-    expenseEntries.push({description, amount})
+    expenseArray.push({description, amount})
 
     expenseDescription.value = ""
     expenseAmount.value = ""
@@ -53,7 +53,7 @@ expenseForm.addEventListener("submit", function(event) {
 function renderIncome() {
     incomeList.innerHTML = ""
 
-    incomeEntries.forEach((amount) => {
+    incomeArray.forEach((amount) => {
         const li = document.createElement("li")
         li.textContent = `$${amount}`
         incomeList.appendChild(li)
@@ -63,7 +63,7 @@ function renderIncome() {
 function renderExpenses() {
     expenseList.innerHTML = ""
 
-    expenseEntries.forEach((item) => {
+    expenseArray.forEach((item) => {
         const li = document.createElement("li")
         li.textContent = `${item.description}: $${item.amount}`
         expenseList.appendChild(li)
