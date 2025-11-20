@@ -61,7 +61,13 @@ function renderIncome() {
 }
 
 function renderExpenses() {
-    
+    expenseList.innerHTML = ""
+
+    expenseEntries.forEach((item) => {
+        const li = document.createElement("li")
+        li.textContent = `${item.description}: $${item.amount}`
+        expenseList.appendChild(li)
+    })
 }
 
 function updateSummary() {
