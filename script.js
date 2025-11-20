@@ -74,11 +74,11 @@ function updateSummary() {
     let totalIncome = 0
     let totalExpenses = 0
 
-    for (let amount of incomeList) {
+    for (let amount of incomeArray) {
         totalIncome =+ amount
     }
 
-    for (let amount of expenseList) {
+    for (let amount of expenseArray) {
         totalExpenses += amount
     }
 
