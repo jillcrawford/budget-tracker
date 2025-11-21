@@ -62,7 +62,7 @@ function renderIncome() {
         incomeList.appendChild(li)
 
         const deleteButton = document.createElement("button")
-        deleteButton.textContent = "Remove"
+        deleteButton.textContent = "X"
         deleteButton.classList.add("delete-button")
 
         deleteButton.addEventListener("click", () => {
@@ -85,7 +85,7 @@ function renderExpenses() {
         expenseList.appendChild(li)
 
         const deleteButton = document.createElement("button")
-        deleteButton.textContent = "Remove"
+        deleteButton.textContent = "X"
         deleteButton.classList.add("delete-button")
 
         deleteButton.addEventListener("click", () => {
