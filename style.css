@@ -5,7 +5,7 @@ body {
 }
 
 button:hover, button:focus {
-    background-color: green;
+    background-color: lightgreen;
 }
 
 button {
@@ -15,4 +15,12 @@ button {
 
 .delete-button {
     margin-left: 5px;
+}
+
+#income-amount, #expense-amount {
+    width: 70px;
+}
+
+#expense-description {
+    width: 150px;
 }
