@@ -20,6 +20,10 @@ section {
     max-width: 350px;
 }
 
+header {
+    text-align: center;
+}
+
 h2 {
     text-align: center;
     font-weight: bold;
