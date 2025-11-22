@@ -12,6 +12,7 @@ const expenseList = document.getElementById("expense-list")
 
 // totals
 const totalIncome = document.getElementById("total-income")
+const incomeDescription = document.getElementById("income-description")
 const totalExpenses = document.getElementById("total-expenses")
 const remainingBalance = document.getElementById("remaining-balance")
 
@@ -25,10 +26,11 @@ let expenseArray = []
 incomeForm.addEventListener("submit", function(event) {
     event.preventDefault()
 
+    const description = incomeDescription.value.trim()    
     const amount = Number(incomeAmount.value)
-    if(amount <= 0) return
+    if(!description || amount <= 0) return
     
-    incomeArray.push(amount)
+    incomeArray.push({description, amount})
     incomeAmount.value = ""
 
     renderIncome()
@@ -56,9 +58,9 @@ expenseForm.addEventListener("submit", function(event) {
 function renderIncome() {
     incomeList.innerHTML = ""
 
-    incomeArray.forEach((amount, index) => {
+    incomeArray.forEach((item, index) => {
         const li = document.createElement("li")
-        li.textContent = `$${amount}`
+        li.textContent = `${item.description}: $${item.amount}`
         incomeList.appendChild(li)
 
         const deleteButton = document.createElement("button")
