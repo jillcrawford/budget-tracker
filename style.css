@@ -54,6 +54,13 @@ button {
     width: 70px;
 }
 
-#expense-description {
+#income-description, #expense-description {
     width: 150px;
+}
+
+#entries-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 5px;
 }

@@ -1,6 +1,7 @@
 // DOM elements
 // income
 const incomeForm = document.getElementById("income-form")
+const incomeDescription = document.getElementById("income-description")
 const incomeAmount = document.getElementById("income-amount")
 const incomeList = document.getElementById("income-list")
 
@@ -12,13 +13,13 @@ const expenseList = document.getElementById("expense-list")
 
 // totals
 const totalIncome = document.getElementById("total-income")
-const incomeDescription = document.getElementById("income-description")
 const totalExpenses = document.getElementById("total-expenses")
 const remainingBalance = document.getElementById("remaining-balance")
 
 // storage arrays
 let incomeArray = []
 let expenseArray = []
+let entries = []
 
 // event listeners
 
@@ -31,9 +32,11 @@ incomeForm.addEventListener("submit", function(event) {
     if(!description || amount <= 0) return
     
     incomeArray.push({description, amount})
+    entries.push({type: "Income", description, amount})
+    incomeDescription.value = ""
     incomeAmount.value = ""
 
-    renderIncome()
+    renderTable()
     updateSummary()
 })
 
@@ -46,11 +49,11 @@ expenseForm.addEventListener("submit", function(event) {
     if(!description || amount <= 0) return
 
     expenseArray.push({description, amount})
-
+    entries.push({type: "Expense", description, amount})
     expenseDescription.value = ""
     expenseAmount.value = ""
 
-    renderExpenses()
+    renderTable()
     updateSummary()
 })
 
@@ -100,12 +103,45 @@ function renderExpenses() {
     })
 }
 
+function renderTable() {
+    const tbody = document.getElementById("table-body")
+    tbody.innerHTML = ""
+
+    entries.forEach((entry, index) => {
+        const row = document.createElement("tr")
+
+        // type
+        const typeText = document.createElement("td")
+        typeText.textContent = entry.type
+
+        // description
+        const descrText = document.createElement("td")
+        descrText.textContent = entry.description
+
+        // amount
+        const amountText = document.createElement("td")
+        amountText.textContent = entry.amount
+
+        if (entry.type == "Income") {
+            amountText.style.color = "green"
+        } else {
+            amountText.style.color = "red"
+        }
+
+        row.appendChild(typeText)
+        row.appendChild(descrText)
+        row.appendChild(amountText)
+
+        tbody.appendChild(row)
+    })
+}
+
 function updateSummary() {
     let totalIncome = 0
     let totalExpenses = 0
 
-    for (let amount of incomeArray) {
-        totalIncome += amount
+    for (let item of incomeArray) {
+        totalIncome += item.amount
     }
 
     for (let item of expenseArray) {
