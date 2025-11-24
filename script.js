@@ -120,10 +120,10 @@ function renderTable() {
 
         if (entry.type == "Income") {
             amountText.style.color = "green"
-            amountText.textContent = `+${entry.amount}`
+            amountText.textContent = `+$${entry.amount}`
         } else {
             amountText.style.color = "red"
-            amountText.textContent = `-${entry.amount}`
+            amountText.textContent = `-$${entry.amount}`
         }
 
         //row.appendChild(typeText)
