@@ -58,9 +58,15 @@ button {
     width: 150px;
 }
 
-#entries-table {
+#budget-table {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
-    border-radius: 5px;
+    border-width: 5px;
+    border: solid;
+    border-color: black;
+}
+
+tr {
+    text-align: center;
 }

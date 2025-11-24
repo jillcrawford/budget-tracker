@@ -110,10 +110,6 @@ function renderTable() {
     entries.forEach((entry, index) => {
         const row = document.createElement("tr")
 
-        // type
-        const typeText = document.createElement("td")
-        typeText.textContent = entry.type
-
         // description
         const descrText = document.createElement("td")
         descrText.textContent = entry.description
@@ -124,11 +120,13 @@ function renderTable() {
 
         if (entry.type == "Income") {
             amountText.style.color = "green"
+            amountText.textContent = `+${entry.amount}`
         } else {
             amountText.style.color = "red"
+            amountText.textContent = `-${entry.amount}`
         }
 
-        row.appendChild(typeText)
+        //row.appendChild(typeText)
         row.appendChild(descrText)
         row.appendChild(amountText)
 
