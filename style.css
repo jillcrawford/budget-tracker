@@ -62,9 +62,12 @@ button {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
-    border-width: 5px;
     border: solid;
     border-color: black;
+}
+
+th, td {
+    border: 1px dotted black;
 }
 
 tr {
