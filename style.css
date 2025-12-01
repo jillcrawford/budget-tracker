@@ -46,10 +46,6 @@ button {
     border-radius: 5px;
 }
 
-.delete-button {
-    margin-left: 5px;
-}
-
 #income-amount, #expense-amount {
     width: 70px;
 }
