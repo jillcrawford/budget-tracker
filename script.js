@@ -3,13 +3,11 @@
 const incomeForm = document.getElementById("income-form")
 const incomeDescription = document.getElementById("income-description")
 const incomeAmount = document.getElementById("income-amount")
-const incomeList = document.getElementById("income-list")
 
 // expenses
 const expenseForm = document.getElementById("expense-form")
 const expenseDescription = document.getElementById("expense-description")
 const expenseAmount = document.getElementById("expense-amount")
-const expenseList = document.getElementById("expense-list")
 
 // totals
 const totalIncome = document.getElementById("total-income")
@@ -58,51 +56,6 @@ expenseForm.addEventListener("submit", function(event) {
 })
 
 // functions
-function renderIncome() {
-    incomeList.innerHTML = ""
-
-    incomeArray.forEach((item, index) => {
-        const li = document.createElement("li")
-        li.textContent = `${item.description}: $${item.amount}`
-        incomeList.appendChild(li)
-
-        const deleteButton = document.createElement("button")
-        deleteButton.textContent = "X"
-        deleteButton.classList.add("delete-button")
-
-        deleteButton.addEventListener("click", () => {
-            incomeArray = incomeArray.filter((_, i) => i !== index)
-            renderIncome()
-            updateSummary()
-        })
-
-        li.appendChild(deleteButton)
-        incomeList.appendChild(li)
-    })
-}
-
-function renderExpenses() {
-    expenseList.innerHTML = ""
-
-    expenseArray.forEach((item) => {
-        const li = document.createElement("li")
-        li.textContent = `${item.description}: $${item.amount}`
-        expenseList.appendChild(li)
-
-        const deleteButton = document.createElement("button")
-        deleteButton.textContent = "X"
-        deleteButton.classList.add("delete-button")
-
-        deleteButton.addEventListener("click", () => {
-            expenseArray = expenseArray.filter((_, i) => i !== index)
-            renderExpenses()
-            updateSummary()
-        })
-
-        li.appendChild(deleteButton)
-    })
-}
-
 function renderTable() {
     const tbody = document.getElementById("table-body")
     tbody.innerHTML = ""
